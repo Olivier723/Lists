@@ -21,11 +21,12 @@ void DLinkedList_Append(DLinkedList* list, void* pointer){
 
 DLinkedList_Node* DLinkedList_getNode(DLinkedList* list, size_t index){
     size_t middle = index/2;
+    DLinkedList_Node* tempNode = NULL;
     if(index <= middle){
-        DLinkedList_Node* tempNode = list->start;
+        tempNode = list->start;
         for(int i = 0; i < index; ++i) tempNode->next;
     }else{
-        DLinkedList_Node* tempNode = list->end;
+        tempNode = list->end;
         for(int i = list->length-1; i >= index; --i) tempNode->prev;
     }
     return tempNode;
